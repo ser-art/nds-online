@@ -1,0 +1,163 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<link rel="shortcut icon" href="images/icon.ico" type="image/x-icon">
+<meta name="description" content="Подсчёт НДС легко и быстро. Просто впишите данные и нажмите кнопку. Куда прощее никогда не было."> 
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta charset="utf-8">
+<meta name="Keywords" content="НДС, НДСонлайн, онлайн, калькулятор, вычислить, начислть, подcчёт, ндс, Ндс, ндс онлайн, nds, подсчёт ндс, калькулятор ндс, онлайн ндс, калькулятор ндс с прописью, КАЛЬКУЛЯТОР"> 
+
+<script src="javascripts/jquery.zclip.js"></script>
+<script src = "javascripts/jquery-1.11.2.js"></script>
+<script src = "jquery-ui/jquery-ui.min.js"></script>
+<script src = "javascripts/scripts.js"></script>
+
+<link href="css/bootstrap.css" rel="stylesheet">
+<link href="jquery-ui/jquery-ui.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
+<title>НДС онлайн калькулятор с прописью</title>
+</head>
+<body>
+<script type="text/javascript">
+(function (d, w, c) {
+    (w[c] = w[c] || []).push(function() {
+        try {
+            w.yaCounter28193826 = new Ya.Metrika({id:28193826,
+                    clickmap:true,
+                    trackLinks:true,
+                    accurateTrackBounce:true});
+        } catch(e) { }
+    });
+
+    var n = d.getElementsByTagName("script")[0],
+        s = d.createElement("script"),
+        f = function () { n.parentNode.insertBefore(s, n); };
+    s.type = "text/javascript";
+    s.async = true;
+    s.src = (d.location.protocol == "https:" ? "https:" : "http:") + "//mc.yandex.ru/metrika/watch.js";
+
+    if (w.opera == "[object Opera]") {
+        d.addEventListener("DOMContentLoaded", f, false);
+    } else { f(); }
+})(document, window, "yandex_metrika_callbacks");
+</script>
+<noscript><div><img src="//mc.yandex.ru/watch/28193826" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+<center><font id = "fonts">НДС калькулятор онлайн</font></center><br>
+<form>
+<center><div id = "kalkstyle">
+<form id="VATForm" class="form-inline" method="post" action="">
+	<div id="VATForm">
+		<div>
+			<label for="f_sum_rub">Сумма</label>
+			<input id="f_sum_rub" maxlength="10" size="13" type="text" class="span2" placeholder="0">
+			 <label for="f_sum_rub">руб.</label>
+			<input id="f_sum_kop" maxlength="2" size="2" type="text" class="span1" placeholder="00">
+			 <label for="f_sum_rub">коп.</label> &nbsp;&nbsp;&nbsp;
+			<label for="f_nds">Ставка НДС, %</label>
+			<input id="f_nds" maxlength="2" size="2" type="text" class="span1" value="18">
+			&nbsp;&nbsp;&nbsp;
+			
+			<input type="button" class="btn btn-primary" id="allocate_VAT" title="Enter" value="Выделить НДС" onclick = "clickvaddel();">&nbsp;
+			<input type="button" class="btn btn-success" id="charge_VAT" title="Ctrl + Enter" value="Начислить НДС" onclick = "clicknasl();">
+			&nbsp;&nbsp;&nbsp;
+		</div>
+	</div>
+</form>
+</div></center>
+</form>
+<br>
+<table class="table table-bordered" id = "globalresulttable" align = "center">
+ <tr> <td>Сумма</td> <td>Сумма прописью</td> <td>Тип операции</td> <td>Ставка НДС</td> <td>НДС</td> <td>НДС прописью</td> <td>Сумма с НДС</td> <td>Сумма без НДС</td></tr>
+</table>
+
+<table id = "tcontent" align = "center" style="">
+<tr>
+<td></td>
+
+<td>
+<div id="res_table">
+<table class="table table-bordered table-striped" id = "resulttable" align = "center">
+
+</table>
+    <input type="button" class="btn btn-danger" id="clear_all" title="Очистить всё" value="Очистить всё" onclick="clear_all();">
+</div>
+</td>
+
+<td></td>
+</tr>
+</table>
+<!--Дно-->
+<p class = "down" align = "center">Copyright © 2015 Сергей Артюхин | <a id="information_href" onclick="$('#information').dialog('open');">Информация</a></p>
+<center><ul class="soc">
+    <li><a class="soc-vkontakte" target="_blank" href="https://vk.com/club89612902"></a></li>
+    <li><a class="soc-google" target="_blank" href="https://plus.google.com/113277688612059162016/posts"></a></li>
+    <li><a class="soc-skype" href=""></a></li>
+    <li><a class="soc-youtube" href=""></a></li>
+    <li><a class="soc-twitter soc-icon-last" href=""></a></li>
+</ul></center><br>
+
+<center><div class = "div-text-about">
+<p class = "text-about-h"><b>Немного информации</b></p>
+<p class = "text-about">Расчет НДС является важным аспектом ведения бухгалтерии любого предприятия, работающего с общей системой налогообложения (ОСН).
+</p>
+<p class = "text-about">Для некоторых начинающих предпринимателей выделение НДС является незнакомой процедурой, плата за ошибку в которой может оказаться высокой. 
+</p>
+</div></center>
+
+<div id="information">
+<p class="information_text">Разработчик: <b>Артюхин Сергей Александрович</b>.</p>
+<p class="information_text">Связь: <b>serartinfo@gmail.com</b>.</p>
+<p class="information_text"><b>Другие проекты:</b></p>
+
+<a class="information_text" href="https://play.google.com/store/apps/details?id=ndscalc.sergeyartyukhin.com.ndscalc " target="_blank" oncflick = "alert('Ссылка не доступна');">
+<img src="images/icon_nds.jpg" class="any_projects" width="45px"><b><cap>НДС Калькулятор для андроид</cap>
+</b></a><br><br>
+
+<a class="information_text" href="https://play.google.com/store/apps/details?id=com.yupiadventures.sergeyartyukhin" target="_blank">
+<img src="images/icon_yupi.png" class="any_projects" width="45px"><b>Приключения Юпи
+<b></a><br><br>
+
+<a class="information_text" href="https://play.google.com/store/apps/details?id=com.SerArtyukhin.FunnyMath" target="_blank">
+<img src="images/icon_math.png" class="any_projects" width="45px"><b>Прикольная Математика
+</b></a>
+</div>
+
+<div id="all-info-of-string">
+<p class="del1" id="del1"></p>
+</div>
+
+    <div id="calculator_other">
+        <!--Блок калькулятора-->
+        <input type="text" value="" class="" id="clakul-ans" placeholder="0.00" disabled>
+        <div id="help-text"></div>
+        <div class="f-block-calk">
+            <input type="button" class="btn btn-danger btn-calk" id="btn-ac" value="AC" onclick="all_clear();">
+            <input type="button" class="btn btn-danger btn-calk" id="btn-del" value="DEL" onclick="one_clear()" style="width: 73px; margin-top: 10px;">
+
+            <input type="button" class="btn btn-default btn-calk" id="btn-plus" value="+" onclick="count(this)" style="margin-top: 10px;"><br>
+
+            <input type="button" class="btn btn-default btn-calk" id="seven" value="7" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="eight" value="8" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="nine" value="9" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="btn-minus" value="-" onclick="count(this)" style="width: 37px;">
+            <br>
+
+            <input type="button" class="btn btn-default btn-calk" id="four" value="4" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="five" value="5" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="six" value="6" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="btn-umn" value="*" onclick="count(this)" style="width: 37px;">
+            <br>
+
+            <input type="button" class="btn btn-default btn-calk" id="one" value="1" onclick="write_numbers(this);">
+            <input type="button" class="btn btn-default btn-calk" id="two" value="2" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="three" value="3" onclick="write_numbers(this)">
+            <input type="button" class="btn btn-default btn-calk" id="btn-delel" value="/" onclick="count(this)" style="width: 37px;">
+            <br>
+
+            <input type="button" class="btn btn-default btn-calk" id="zero" value="0" onclick="write_numbers(this)" style="width: 85px;">
+            <input type="button" class="btn btn-default btn-calk" id="toch" value="." onclick="write_numbers(this)" style="width: 35px;">
+            <input type="button" class="btn btn-default btn-calk" id="btn-ravno" value="=" onclick="all_sch();">
+        </div>
+    </div>
+</body>
+</html>
