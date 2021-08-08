@@ -1,6 +1,0 @@
-<Limit GET POST>
-	require valid-user
-</Limit>
-AuthType Basic
-AuthName "webstat"
-AuthUserFile /home/nds/data/etc/xn--80ahsbebiosdqk9ixb.xn--p1ai.stat.passwd
